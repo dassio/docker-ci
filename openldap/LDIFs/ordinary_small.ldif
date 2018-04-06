@@ -1,0 +1,60 @@
+dn: ou=Ordinary,dc=nextcloud,dc=ci
+objectclass: top
+objectclass: organizationalUnit
+ou: Ordinary
+
+dn: ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
+objectclass: top
+objectclass: organizationalUnit
+ou: Users
+
+dn: uid=alice,ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
+objectclass: inetOrgPerson
+uid: alice
+cn: Alice Alfgeirdottir
+sn: Alfgeirdottir
+givenname: Alice
+initials: AA
+displayname: Alice
+userPassword: 123456
+mail: alice@nextcloud.ci
+mobile: +49 173 7484122
+jpegPhoto:< file:///etc/ldap/prepopulate/avatar-female.jpg
+
+dn: uid=ghost,ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
+objectclass: inetOrgPerson
+uid: ghost
+cn: A Ghost
+givenname: Sam
+sn: Wheat
+description: a user without displayName that should be ignored by Nextcloud when configured userDisplayNameAttribute is set to displayname (default)
+
+dn: ou=Groups,ou=Ordinary,dc=nextcloud,dc=ci
+objectclass: top
+objectclass: organizationalUnit
+ou: Groups
+
+dn: cn=RedGroup,ou=Groups,ou=Ordinary,dc=nextcloud,dc=ci
+objectClass: groupOfNames
+member: uid=alice,ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
+
+dn: cn=BlueGroup,ou=Groups,ou=Ordinary,dc=nextcloud,dc=ci
+objectClass: groupOfNames
+member: uid=alice,ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
+
+dn: cn=GreenGroup,ou=Groups,ou=Ordinary,dc=nextcloud,dc=ci
+objectClass: groupOfNames
+member: uid=alice,ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
+
+dn: cn=PurpleGroup,ou=Groups,ou=Ordinary,dc=nextcloud,dc=ci
+objectClass: groupOfNames
+member: uid=alice,ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
+
+dn: ou=OtherGroups,dc=nextcloud,dc=ci
+objectclass: top
+objectclass: organizationalUnit
+ou: Groups
+
+dn: cn=SquareGroup,ou=OtherGroups,dc=nextcloud,dc=ci
+objectClass: groupOfNames
+member: uid=alice,ou=Users,ou=Ordinary,dc=nextcloud,dc=ci
